@@ -1,0 +1,60 @@
+{% load static %}
+{% load crispy_forms_field %}
+{% load crispy_forms_utils %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid text-center bg-primary" style="background-image: url({% static 'authentication/im2.jpg' %}); background-size: cover; height: 500px;">
+  <div class="container text-light">
+    <h1 class="display-4">Bienvenue sur votre page d'accueil  {{ user.username }}.</h1>
+    <p class="lead">Ceci est votre espace personnel.</p>
+    <hr class="my-4 bg-light">
+    <p>Vous pouvez trouver toutes les informations et fonctionnalités nécessaires ici</p>
+    <a class="btn btn-outline-light btn-lg" href="#" role="button">En savoir plus</a>
+    <p><a class="btn btn-danger btn-lg" href="{% url 'logout' %}">Déconnexion</a></p>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="text-center">Les fonctionnalités de votre espace personnel</h2>
+  <p class="text-center">Vous pouvez accéder à tous vos droits d'administration à partir de cette page</p>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Select</h5>
+          <p class="card-text">Selection d'une table table </p>
+          <a class="btn btn-primary" href="{% url 'select' %}" >Accéder</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Inser</h5>
+          <p class="card-text">Insertion des données</p>
+          <a href="{% url 'insert' %}" class="btn btn-primary">Accéder</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Udpate</h5>
+          <p class="card-text">Modification et mise à jour des tables</p>
+          <a href="{% url 'update' %}" class="btn btn-primary">Accéder</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

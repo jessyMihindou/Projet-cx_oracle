@@ -1,0 +1,106 @@
+{% load static %}
+{% load crispy_forms_field %}
+{% load crispy_forms_utils %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        .bg-image {
+             background-image: url("{% static 'authentication/img_1.png' %}");
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             height: 100vh;
+  }
+        .form-container {
+            background-color: rgba(159, 150, 150, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgb(255, 251, 251);
+            margin-top: 100px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-header {
+            font-size: 36px;
+            font-weight: bold;
+            color: #f1ecec;
+        }
+        h2{
+            font-size: 36px;
+            font-weight: bold;
+            color: #ecbfbf;
+
+
+        }
+        .form-control {
+        }
+        .form-control:focus {
+            border-bottom: 2px solid #fcf6f6;
+        }
+        .btn-submit {
+            border-radius: 50px;
+            background-color: rgba(255, 251, 251, 0.47);
+            color: #fff;
+            border: none;
+            padding: 10px 40px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-submit:hover {
+            background-color: #ffff;
+            color: #333;
+            cursor: pointer;
+        }
+         .field-username label,
+         .field-password label {
+             color: #ece8e8;
+             font-style: italic;
+         }
+         .field-message{
+             color: aliceblue;
+         }
+    </style>
+
+    <title>Formulaire de connexion</title>
+</head>
+
+<div class="bg-image d-flex align-items-center">
+  <div class="container text-center">
+<body class = bg-image>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2>Login</h2>
+                    </div>
+                    <form method="post">
+                        <p class="field-message">{{ message }}</p>
+                         {% csrf_token %}
+                        <div class = "field-username label">
+                           {{ form.username|as_crispy_field }}
+                        </div>
+                        <div class = "field-password label">
+                            {{ form.password|as_crispy_field }}
+                        </div>
+                        <button type="submit" class="btn btn-submit">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+       </div>
+
+    </div>
+</html>
