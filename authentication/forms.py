@@ -10,3 +10,4 @@ class LoginForm(forms.Form):
          self.helper = FormHelper()
          self.helper.form_method = 'post'
          self.helper.add_input(Submit('submit', 'Submit'))
+         print("thank")
